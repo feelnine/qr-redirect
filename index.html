@@ -1,0 +1,23 @@
+<script>
+  const month = new Date().getMonth() + 1;
+  const lang = (navigator.language || "").toLowerCase();
+
+  const urls = {
+    jpOdd:  "https://www.qoo10.jp/shop/feelnine_jp",
+    jpEven: "https://www.rakuten.co.jp/lsdni/",
+    kr:     "https://smartstore.naver.com/feel9"
+  };
+
+  const isJapan = lang.includes("ja");
+  const isOdd = month % 2 === 1;
+
+  let target = "";
+
+  if (isJapan) {
+    target = isOdd ? urls.jpOdd : urls.jpEven;
+  } else {
+    target = urls.kr;
+  }
+
+  location.replace(target);
+</script>
